@@ -36,8 +36,8 @@ let csvContent = 'Name,EPS1,EPS2,EPS3,ROCE1,ROCE2,ROCE3\n';
     // Wait for navigation after logging in
     // await page.waitForNavigation();
   }
-  const date = 15
-  await page.goto(`https://www.screener.in/results/latest/?p=1&result_update_date__day=${date}&result_update_date__month=2&result_update_date__year=2024`);
+  // const date = 15
+  await page.goto(`https://www.screener.in/results/latest/?p=1&result_update_date__day=${process.env.date}&result_update_date__month=2&result_update_date__year=2024`);
   await page.waitForSelector('a.end');
   let totalPages = await page.evaluate(() => {
     const link = document.querySelector('a.end');
@@ -54,7 +54,7 @@ let csvContent = 'Name,EPS1,EPS2,EPS3,ROCE1,ROCE2,ROCE3\n';
     await sleep(1500)
     let csvRow = '';
     try {
-      await page.goto(`https://www.screener.in/results/latest/?p=${i}&result_update_date__day=${date}&result_update_date__month=2&result_update_date__year=2024`);
+      await page.goto(`https://www.screener.in/results/latest/?p=${i}&result_update_date__day=${process.env.date}&result_update_date__month=2&result_update_date__year=2024`);
       // await page.waitForSelector('div.flex-row.margin-top-32');
       const data = await page.evaluate(async () => {
 
