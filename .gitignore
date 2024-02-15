@@ -1,7 +1,8 @@
+.env
 node_modules
 .nvmrc
 *.csv
 *.html
 *.json 
 !package.json
-.env
+
