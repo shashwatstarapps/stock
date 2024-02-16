@@ -18,7 +18,7 @@ let res = [];
 let csvContent = 'Name,EPS1,EPS2,EPS3,ROCE1,ROCE2,ROCE3\n';
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true }); // Launch browser with headless mode off
+  const browser = await puppeteer.launch({ headless: false }); // Launch browser with headless mode off
   const page = await browser.newPage();
 
   // Navigate to the login page
@@ -45,6 +45,7 @@ let csvContent = 'Name,EPS1,EPS2,EPS3,ROCE1,ROCE2,ROCE3\n';
   });
   totalPages = parseInt(totalPages);
   console.log(totalPages)
+  console.log("date: ", process.env.date)
 
   // Scrape data from the page
 
